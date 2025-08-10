@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Rubik", sans-serif;
+}
+body{
+    background-color: #1f242d  ;
+}
+a{
+    color: #fff;
+    text-decoration: none;
+}
+.navbar{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 25px  9%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+.navbar .logo{
+    font-size: 30px;
+    font-weight: 700;
+}
+.navbar ul{
+    display:flex;
+}
+.navbar ul li{
+    list-style: none;
+    margin-left:35px ;
+}
+.navbar ul li a{
+    font-size: 20px;
+    font-weight: 500;
+    transition: .5s;
+}
+.navbar ul li:hover a,
+.navbar ul li.active a{
+    color:aqua;
+}
+
+.home{
+    display:flex;
+    align-items: center;
+    height: 100vh;
+    padding: 60px 9% 0;
+    color: white;
+}
+.home .home-info h1{
+    font-size: 55px;
+}
+.home .home-info h2{
+    display: inline-block;
+    margin-top: -10px;
+    font-size: 32px;
+}
+.home .home-info h2 span{
+    position: relative;
+    display: inline-block;
+    color: transparent;
+    -webkit-text-stroke: .7px aqua;
+    animation: display-text 16s linear infinite;
+    animation-delay: calc(-4s * var(--i));
+}
+@keyframes display-text{
+    25%, 100%{
+        display: none;
+    }
+}
+.home .home-info h2 span::before{
+    content: attr(data-text);
+    position: absolute;
+    width: 0;
+    border-right: 2px solid aqua;
+    color: aqua;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: fill-text 4s linear infinite;
+}
+@keyframes fill-text{
+    10%, 100%{
+        width: 0;
+    }
+    70%, 90%{
+        width: 100%;
+    }
+}
+.home .home-info p{
+    font-size: 16px;
+    margin: 10px 0 25px;
+}
+.btn{
+    display: inline-block;
+    padding: 10px 30px;
+    background: aqua;
+    border: 2px solid aqua;
+    border-radius: 40px;
+    box-shadow: 0 0 10px aqua;
+    font-size: 16px;
+    color: #1f242d;
+    font-weight: 600;
+    transition: .3s;
+}
+.home-info .btn-sci{
+    display: flex;
+    align-items: center;
+}
+.btn:hover{
+    background: transparent;
+    box-shadow: none;
+    color: white;
+}
+.home-info .btn-sci .sci {
+    margin-left: 20px;
+}
+.home-info .btn-sci .sci a{
+    display: inline-flex;
+    padding: 8px;
+    border: 2px solid aqua;
+    border-radius: 50%;
+    font-size: 20px;
+    color: aqua;
+    margin:  0 8px;
+    transition: .5s;
+}
+.home-info .btn-sci .sci a:hover{
+    background: aqua;
+    color: #1f242d;
+}
+.home-img .img-box{
+    position: relative;
+    width: 32vw;
+    height: 32vw;
+    background: none;
+    border-radius: 50%;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.home-img .img-box::before,
+.home-img .img-box::after{
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: conic-gradient(transparent, transparent, transparent, aqua);
+    transform: rotate(0deg);
+    animation: rotate-border 10s linear infinite;
+}
+.home-img .img-box::after{
+    animation-delay: -5s;
+}
+@keyframes rotate-border{
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.home-img .img-box .img-item{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #1f242d;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    overflow: hidden;
+}
+.home-img .img-box .img-item img{
+    position: absolute;
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .navbar{
+        padding: 15px 5%;
+    }
+    
+    .navbar .logo{
+        font-size: 24px;
+    }
+    
+    .navbar ul li{
+        margin-left: 20px;
+    }
+    
+    .navbar ul li a{
+        font-size: 16px;
+    }
+    
+    .home{
+        flex-direction: column;
+        padding: 80px 5% 20px;
+        text-align: center;
+        height: auto;
+        min-height: 100vh;
+    }
+    
+    .home .home-info{
+        order: 2;
+        margin-top: 30px;
+    }
+    
+    .home .home-info h1{
+        font-size: 36px;
+    }
+    
+    .home .home-info h2{
+        font-size: 24px;
+        margin-top: 10px;
+    }
+    
+    .home .home-info p{
+        font-size: 14px;
+        margin: 15px 0 30px;
+    }
+    
+    .home-info .btn-sci{
+        justify-content: center;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .btn{
+        padding: 12px 35px;
+        font-size: 14px;
+    }
+    
+    .home-img{
+        order: 1;
+    }
+    
+    .home-img .img-box{
+        width: 60vw;
+        height: 60vw;
+        max-width: 280px;
+        max-height: 280px;
+        min-width: 200px;
+        min-height: 200px;
+    }
+}
+@media (max-width: 480px) {
+    .navbar{
+        padding: 12px 4%;
+    }
+    
+    .navbar .logo{
+        font-size: 20px;
+    }
+    
+    .navbar ul li{
+        margin-left: 15px;
+    }
+    
+    .navbar ul li a{
+        font-size: 14px;
+    }
+    
+    .home{
+        padding: 70px 4% 20px;
+    }
+    
+    .home .home-info h1{
+        font-size: 28px;
+    }
+    
+    .home .home-info h2{
+        font-size: 20px;
+    }
+    
+    .home .home-info h2 span{
+        -webkit-text-stroke: .5px aqua;
+    }
+    
+    .home .home-info p{
+        font-size: 13px;
+        margin: 12px 0 25px;
+    }
+    
+    .btn{
+        padding: 10px 25px;
+        font-size: 13px;
+    }
+    
+    .home-info .btn-sci .sci a{
+        padding: 6px;
+        font-size: 16px;
+    }
+    
+    .home-img .img-box{
+        width: 70vw;
+        height: 70vw;
+        max-width: 250px;
+        max-height: 250px;
+        min-width: 180px;
+        min-height: 180px;
+    }
+}
+@media (max-width: 360px) {
+    .navbar ul li{
+        margin-left: 10px;
+    }
+    
+    .navbar ul li a{
+        font-size: 12px;
+    }
+    
+    .home .home-info h1{
+        font-size: 24px;
+    }
+    
+    .home .home-info h2{
+        font-size: 18px;
+    }
+    
+    .home .home-info p{
+        font-size: 12px;
+    }
+    
+    .btn{
+        padding: 8px 20px;
+        font-size: 12px;
+    }
+}
