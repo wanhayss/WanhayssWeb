@@ -34,7 +34,7 @@ a {
 
 .navbar .logo {
     font-size: 30px;
-    font-weight: 700;
+    font-weight: 900;
 }
 
 .navbar ul {
@@ -48,7 +48,7 @@ a {
 
 .navbar ul li a {
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 700;
     transition: .5s;
 }
 
@@ -58,6 +58,7 @@ a {
 }
 
 .home {
+    margin-top: 90px;
     display: flex;
     align-items: center;
     height: 100vh;
@@ -466,63 +467,77 @@ a {
 }
 
 /* Responsive Design */
+@media (max-width: 991px) {
+    .navbar {
+        padding: 20px 5%;
+    }
+    
+    .home {
+        padding: 80px 5% 20px;
+    }
+    
+    .about {
+        padding: 80px 5% 50px;
+    }
+    
+    .skills {
+        padding: 80px 5% 50px;
+    }
+    
+    .contact {
+        padding: 80px 5% 50px;
+    }
+}
+
 @media (max-width: 768px) {
-    .about-container {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        text-align: center;
-    }
-    
-    .about-title {
-        font-size: 36px;
-    }
-    
-    .about-text {
-        font-size: 16px;
-    }
-    
-    .image-gallery {
-        width: 300px;
-        height: 400px;
-    }
-    
+    /* Navigation */
     .navbar {
         padding: 15px 5%;
+        flex-wrap: wrap;
     }
     
     .navbar .logo {
         font-size: 24px;
     }
     
+    .navbar ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    
     .navbar ul li {
-        margin-left: 20px;
+        margin-left: 15px;
     }
     
     .navbar ul li a {
         font-size: 16px;
     }
     
+    /* Home Section */
     .home {
         flex-direction: column;
-        padding: 80px 5% 20px;
+        padding: 100px 5% 30px;
         text-align: center;
         height: auto;
         min-height: 100vh;
+        gap: 30px;
     }
     
     .home .home-info {
         order: 2;
-        margin-top: 30px;
-    }
-    
-    .home .home-info h1 {
-        font-size: 36px;
         width: 100%;
     }
     
+    .home .home-info h1 {
+        font-size: clamp(28px, 6vw, 40px);
+        width: 100%;
+        line-height: 1.2;
+    }
+    
     .home .home-info h2 {
-        font-size: 24px;
-        margin-top: 10px;
+        font-size: clamp(18px, 4vw, 24px);
+        margin-top: 15px;
     }
     
     .home-img {
@@ -530,34 +545,224 @@ a {
     }
     
     .home-img .img-box {
-        width: 60vw;
-        height: 60vw;
-        max-width: 280px;
-        max-height: 280px;
-        min-width: 200px;
-        min-height: 200px;
+        width: 250px;
+        height: 250px;
     }
-}
-
-@media (max-width: 480px) {
+    
+    .home-img .img-box::before,
+    .home-img .img-box::after {
+        width: 300px;
+        height: 300px;
+    }
+    
+    /* About Section - Mobile Fix */
     .about {
-        padding: 80px 5% 30px;
+        padding: 80px 5% 50px;
+        min-height: auto;
     }
     
     .about-container {
-        gap: 30px;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .about-image {
+        order: 1;
+    }
+    
+    .about-content {
+        order: 2;
+        gap: 25px;
     }
     
     .about-title {
-        font-size: 28px;
+        font-size: clamp(28px, 6vw, 36px);
+        text-align: center;
+    }
+    
+    .about-title::after {
+        left: 50%;
+        transform: translateX(-50%);
     }
     
     .about-text {
+        font-size: 16px;
+        text-align: left;
+        margin: 0 auto;
+    }
+    
+    .about-highlight {
+        padding: 15px;
+        margin: 15px 0;
+        text-align: left;
+    }
+    
+    .about-highlight h3 {
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    
+    .image-gallery {
+        width: 100%;
+        max-width: 320px;
+        height: 320px;
+        margin: 0 auto;
+    }
+    
+    /* Skills Section */
+    .skills-title {
+        font-size: clamp(28px, 6vw, 36px);
+    }
+    
+    .skills-description {
+        font-size: 16px;
+        margin-bottom: 40px;
+        padding: 0 10px;
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
+        padding: 0 10px;
+    }
+    
+    .skills-card {
+        padding: 20px 15px;
+        max-width: none;
+    }
+    
+    .skill-icon {
+        font-size: 2.5rem;
+    }
+    
+    .skill-name {
+        font-size: 18px;
+    }
+    
+    .skill-description {
+        font-size: 13px;
+    }
+    
+    /* Contact Section - Mobile Fix */
+    .contact {
+        padding: 80px 5% 50px;
+        min-height: auto;
+    }
+    
+    .contact-title {
+        font-size: clamp(28px, 6vw, 36px);
+        margin-bottom: 40px;
+    }
+    
+    .btn-sci {
+        display: flex;
+        flex-direction: column;  /* This makes sci go below btn */
+        align-items: center;
+        gap: 30px;
+    }
+    
+    .btn {
+        width: auto;
+        padding: 15px 30px;
+        font-size: 16px;
+    }
+    
+}
+
+@media (max-width: 480px) {
+    /* Navigation */
+    .navbar {
+        padding: 12px 4%;
+    }
+    
+    .navbar .logo {
+        font-size: 20px;
+    }
+    
+    .navbar ul li {
+        margin-left: 10px;
+    }
+    
+    .navbar ul li a {
+        font-size: 14px;
+    }
+    
+    /* Home Section */
+    .home {
+        padding: 90px 4% 20px;
+    }
+    
+    .home-img .img-box {
+        width: 200px;
+        height: 200px;
+    }
+    
+    /* About Section */
+    .about {
+        padding: 70px 4% 40px;
+    }
+    
+    .about-text {
+        font-size: 15px;
+    }
+    
+    .about-highlight p {
         font-size: 14px;
     }
     
     .image-gallery {
-        width: 250px;
-        height: 320px;
+        max-width: 280px;
+        height: 280px;
+    }
+    
+    /* Skills Section */
+    .skills {
+        padding: 70px 4% 40px;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+    
+    .skills-card {
+        padding: 15px 10px;
+    }
+    
+    .skill-icon {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+    
+    .skill-name {
+        font-size: 16px;
+    }
+    
+    .skill-description {
+        font-size: 12px;
+    }
+    
+    /* Contact Section */
+    .contact {
+        padding: 70px 4% 40px;
+    }
+    
+}
+
+@media (max-width: 320px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .home-img .img-box {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .image-gallery {
+        max-width: 250px;
+        height: 250px;
     }
 }
